@@ -1,0 +1,21 @@
+{
+  "spawnerwaypoints.config.title": "Spawner Waypoints",
+  "spawnerwaypoints.config.category.general": "全般",
+  "spawnerwaypoints.config.enabled": "スポナーを探す",
+  "spawnerwaypoints.config.enabled.desc": "まわりのスポナーをワールドのシードから計算し、ウェイポイントとして表示します。OFF にすると、前に見つけたスポナーのウェイポイントも出しません。探すのは続けてウェイポイントだけを隠すときは、下の「表示」を OFF にします。",
+  "spawnerwaypoints.config.dungeonRadius": "ダンジョンを探す範囲（チャンク）",
+  "spawnerwaypoints.config.dungeonRadius.desc": "まわりの何チャンクまでダンジョンを計算するか。広くするほど時間がかかります。",
+  "spawnerwaypoints.config.structureRadius": "構造物を探す範囲（チャンク）",
+  "spawnerwaypoints.config.structureRadius.desc": "スポナーのある廃坑・要塞・ネザー要塞・砦の遺跡・試練の間を、まわりの何チャンクまで探すか。",
+  "spawnerwaypoints.config.showFrames": "スポナーを枠で囲む",
+  "spawnerwaypoints.config.showFrames.desc": "近くのスポナーを、壁越しにも見える枠で囲みます。細い枠は、別の場所にあるかもしれないスポナーです。",
+  "spawnerwaypoints.config.frameDistance": "枠を出す距離（ブロック）",
+  "spawnerwaypoints.config.frameDistance.desc": "どこまで離れたスポナーまで枠で囲むか。",
+  "spawnerwaypoints.kind": "スポナー",
+  "spawnerwaypoints.group.unknown": "不明なモブ",
+  "spawnerwaypoints.group.trial": "試練のスポナー",
+  "spawnerwaypoints.place": "%sのスポナー",
+  "spawnerwaypoints.place.trial": "%sの試練のスポナー",
+  "spawnerwaypoints.place.trial.unknown": "試練のスポナー",
+  "spawnerwaypoints.place.uncertain": "%s（別の場所かも）"
+}

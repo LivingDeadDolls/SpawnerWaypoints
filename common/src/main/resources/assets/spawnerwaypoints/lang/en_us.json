@@ -1,0 +1,23 @@
+{
+  "spawnerwaypoints.config.title": "Spawner Waypoints",
+  "spawnerwaypoints.config.category.general": "General",
+  "spawnerwaypoints.config.enabled": "Find Spawners",
+  "spawnerwaypoints.config.enabled.desc": "Works out the spawners around you from the world seed and shows them as waypoints. When off, the spawners found before are not shown either. To hide the waypoints but keep finding spawners, turn off Show below instead.",
+  "spawnerwaypoints.config.dungeonRadius": "Dungeon Range (chunks)",
+  "spawnerwaypoints.config.dungeonRadius.desc": "How many chunks around you dungeons are worked out. A larger range takes longer.",
+  "spawnerwaypoints.config.structureRadius": "Structure Range (chunks)",
+  "spawnerwaypoints.config.structureRadius.desc": "How many chunks around you mineshafts, strongholds, nether fortresses, bastions and trial chambers are looked for, for their spawners.",
+  "spawnerwaypoints.config.showFrames": "Outline Spawners",
+  "spawnerwaypoints.config.showFrames.desc": "Outlines the spawners near you, through walls. A thin outline marks a spawner that may be elsewhere.",
+  "spawnerwaypoints.config.frameDistance": "Outline Distance (blocks)",
+  "spawnerwaypoints.config.frameDistance.desc": "How far from you spawners are outlined.",
+  "spawnerwaypoints.kind": "Spawners",
+  "spawnerwaypoints.group.unknown": "Unknown Mob",
+  "spawnerwaypoints.group.trial": "Trial Spawner",
+  "spawnerwaypoints.initial.minecraft.spider": "P",
+  "spawnerwaypoints.initial.minecraft.silverfish": "F",
+  "spawnerwaypoints.place": "%s Spawner",
+  "spawnerwaypoints.place.trial": "%s Trial Spawner",
+  "spawnerwaypoints.place.trial.unknown": "Trial Spawner",
+  "spawnerwaypoints.place.uncertain": "%s (maybe)"
+}

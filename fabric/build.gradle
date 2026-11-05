@@ -1,0 +1,71 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.fabricmc.fabric-loom'
+}
+repositories {
+    // Seed Engine API and Waypoints API, published to the local Maven repository (./gradlew publishToMavenLocal in each).
+    exclusiveContent {
+        forRepository {
+            mavenLocal()
+        }
+        filter {
+            includeModule('io.github.livingdeaddolls', 'seedengine-fabric')
+            includeModule('io.github.livingdeaddolls', 'waypointsapi-fabric')
+        }
+    }
+}
+
+dependencies {
+    minecraft("com.mojang:minecraft:${minecraft_version}")
+    implementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
+    implementation("dev.isxander:yet-another-config-lib:${yacl_version}-fabric")
+
+    // Required: Seed Engine API works the spawners out from the seed, Waypoints API shows them. Both nested in the jar
+    // (Fabric Loader reads only the newest of each), and on the dev runtime for runClient.
+    compileOnly("io.github.livingdeaddolls:seedengine-fabric:${seedengine_version}") { transitive = false }
+    localRuntime("io.github.livingdeaddolls:seedengine-fabric:${seedengine_version}") { transitive = false }
+    include("io.github.livingdeaddolls:seedengine-fabric:${seedengine_version}") { transitive = false }
+    compileOnly("io.github.livingdeaddolls:waypointsapi-fabric:${waypointsapi_version}") { transitive = false }
+    localRuntime("io.github.livingdeaddolls:waypointsapi-fabric:${waypointsapi_version}") { transitive = false }
+    include("io.github.livingdeaddolls:waypointsapi-fabric:${waypointsapi_version}") { transitive = false }
+
+    // Optional: config button in Mod Menu. Also on the dev runtime so runClient shows it.
+    compileOnly("com.terraformersmc:modmenu:${modmenu_version}") { transitive = false }
+    localRuntime("com.terraformersmc:modmenu:${modmenu_version}")
+}
+
+
+loom {
+    def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('runs/client')
+        }
+    }
+}
+
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'includeInternal', 'modCompileClasspath'].each { variant ->
+    configurations.named(variant) {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant->
+        configurations.named(variant) {
+            attributes {
+                attribute(loaderAttribute, 'fabric')
+            }
+        }
+    }
+}
