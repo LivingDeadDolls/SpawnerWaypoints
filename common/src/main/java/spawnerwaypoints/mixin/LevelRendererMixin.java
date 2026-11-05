@@ -17,7 +17,7 @@ abstract class LevelRendererMixin {
      */
     @Inject(method = "finalizeGizmoCollection", at = @At("HEAD"))
     private void spawnerwaypoints$frameGizmos(CallbackInfo ci) {
-        try (Gizmos.TemporaryCollection ignored = ((LevelRenderer) (Object) this).collectPerFrameRenderThreadGizmos()) {
+        try (Gizmos.TemporaryCollection ignored = ((LevelRenderer) (Object) this).collectPerFrameGizmos()) {
             SpawnerFrames.frame();
         }
     }
